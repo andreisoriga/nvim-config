@@ -64,10 +64,12 @@ lspconfig["dockerls"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["golangci_lint_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["golangci_lint_ls"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+
+require("lspconfig").gopls.setup({})
 
 lspconfig["jsonls"].setup({
 	capabilities = capabilities,

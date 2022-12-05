@@ -41,8 +41,13 @@ npm install -g tree-sitter-cli
 Update packer packages or install new ones
 Update `lua/asoriga/packer.lua`, save it, source it with `so` and run:
 
-```
+```bash
 :PackerSync
+```
+
+```bash
+:Mason
+:MasonLog -> in case there are errors at startup
 ```
 
 Open netrw: `SPACE + e`
