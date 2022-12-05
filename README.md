@@ -1,5 +1,7 @@
 # Setup Requires
 
+## For MAC
+
 For XCode Command Line Tools do:
 
 ```bash
@@ -20,6 +22,18 @@ brew install ripgrep
 
 ```bash
 brew install node
+```
+
+## For Fedora (or Linux in general)
+
+```bash
+sudo dnf install gcc-c++ ripgrep
+```
+
+install node via nvm or something and after that this package
+
+```bash
+npm install -g tree-sitter-cli
 ```
 
 ## Some commands
