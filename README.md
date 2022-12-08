@@ -13,15 +13,11 @@ brew install --cask iterm2
 ```
 
 ```bash
-brew install neovim
+brew install neovim riphrep go node
 ```
 
 ```bash
-brew install ripgrep
-```
-
-```bash
-brew install node
+npm install -g tree-sitter-cli quicktype
 ```
 
 ## For Fedora (or Linux in general)
@@ -33,7 +29,7 @@ sudo dnf install gcc-c++ ripgrep
 install node via nvm or something and after that this package
 
 ```bash
-npm install -g tree-sitter-cli
+npm install -g tree-sitter-cli quicktype
 ```
 
 ## Some commands
@@ -50,7 +46,27 @@ Update `lua/asoriga/packer.lua`, save it, source it with `so` and run:
 :MasonLog -> in case there are errors at startup
 ```
 
+```bash
+:checkconfig
+```
+
+To check what lsp server is running
+
+```bash
+:LspInfo
+```
+
+Format the file, this command can be found in lspaconfig.lua
+
+```bash
+:Format
+```
+
 Open netrw: `SPACE + e`
+
+## Resources
+
+Linting help: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
 
 Motions:
 

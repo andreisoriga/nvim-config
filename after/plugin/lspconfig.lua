@@ -11,7 +11,6 @@ if not cmp_nvim_lsp_status then
 end
 
 local keymap = vim.keymap -- for conciseness
-
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
@@ -30,6 +29,8 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
 	keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
+
+	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -43,77 +44,59 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
+-- configure servers
+
+lspconfig.html.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["ansiblels"].setup({
-	capabilities = capabilities,
+lspconfig.ansiblels.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["bashls"].setup({
-	capabilities = capabilities,
+lspconfig.bashls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["dockerls"].setup({
-	capabilities = capabilities,
+lspconfig.dockerls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
--- lspconfig["golangci_lint_ls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
-
-require("lspconfig").gopls.setup({})
-
-lspconfig["jsonls"].setup({
-	capabilities = capabilities,
+lspconfig.gopls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["marksman"].setup({
-	capabilities = capabilities,
+lspconfig.jsonls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["pyright"].setup({
-	capabilities = capabilities,
+lspconfig.marksman.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["rust_analyzer"].setup({
-	capabilities = capabilities,
+lspconfig.pyright.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["svelte"].setup({
-	capabilities = capabilities,
+lspconfig.svelte.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["lemminx"].setup({
-	capabilities = capabilities,
+lspconfig.lemminx.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
-lspconfig["yamlls"].setup({
-	capabilities = capabilities,
+lspconfig.yamlls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
-
--- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
+lspconfig.cssls.setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig.sumneko_lua.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
