@@ -17,6 +17,11 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
+opt.hlsearch = false
+opt.incsearch = true
+
+-- never scroll to the bottom, alwasy leave 10 lines
+opt.scrolloff = 10
 
 -- appearance
 opt.termguicolors = true

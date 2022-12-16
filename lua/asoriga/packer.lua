@@ -32,31 +32,27 @@ return require("packer").startup(function(use)
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
 
-	-- autocompletion
-	use("hrsh7th/nvim-cmp") -- completion plugin
-	use("hrsh7th/cmp-buffer") -- source for text in buffer
-	use("hrsh7th/cmp-path") -- source for file system paths
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
 
-	-- snippets
-	use("L3MON4D3/LuaSnip") -- snippet engine
-	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-	use("rafamadriz/friendly-snippets") -- useful snippets
-
-	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-
-	-- configuring lsp servers
-	use("neovim/nvim-lspconfig") -- easily configure language servers
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-
-	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
@@ -64,7 +60,6 @@ return require("packer").startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-	use("crispgm/nvim-go")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

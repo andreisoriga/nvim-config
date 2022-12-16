@@ -28,3 +28,10 @@ keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Visual mode
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")
+
+-- do not copy the selected text when pasting over it
+keymap.set("v", "p", '"_dP"')

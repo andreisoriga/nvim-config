@@ -1,52 +1,12 @@
--- import mason plugin safely
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-	return
-end
+vim.opt.signcolumn = 'yes' -- Reserve space for diagnostic icons
 
--- import mason-lspconfig plugin safely
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-	return
-end
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
 
--- import mason-null-ls plugin safely
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-	return
-end
-
--- enable mason
-mason.setup()
-
--- check installation status with cmd :Mason
-mason_lspconfig.setup({
-	-- list of servers for mason to install
-	ensure_installed = {
-		"ansiblels",
-		"bashls",
-		"dockerls",
-		"gopls",
-		"jsonls",
-		"sumneko_lua",
-		"marksman",
-		"pyright",
-		"svelte",
-		"lemminx",
-		"yamlls",
-		"html",
-		"cssls",
-	},
-	-- auto-install configured servers (with lspconfig)
-	automatic_installation = true, -- not the same as ensure_installed
+lsp.ensure_installed({
+  'sumneko_lua',
 })
 
-mason_null_ls.setup({
-	-- list of formatters & linters for mason to install
-	ensure_installed = {
-		"prettier", -- ts/js formatter
-		"stylua", -- lua formatter
-	},
-	-- auto-install configured formatters & linters (with null-ls)
-	automatic_installation = true,
-})
+lsp.nvim_workspace()
+
+lsp.setup()
