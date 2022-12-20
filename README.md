@@ -67,6 +67,7 @@ Open netrw: `SPACE + e`
 ## Resources
 
 Linting help: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#gopls
+Catppuccin theme: https://github.com/catppuccin/nvim#special-integrations
 
 Motions:
 
