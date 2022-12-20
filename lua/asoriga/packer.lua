@@ -58,6 +58,8 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
+  use({"jose-elias-alvarez/null-ls.nvim"})
+
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
